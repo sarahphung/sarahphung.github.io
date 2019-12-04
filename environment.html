@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- <script src="assets/js/js1.js"></script> -->
+	<title> Buzz Buzz </title>
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="sidebar">
+		<div id="sidebar_image">
+			<a href="./index.html"><img src="assets/images/apitherapy.png" width=10px id="beepic"></a>
+		</div>
+		<div id="name">
+			Sarah Phung
+		</div>
+		<div id="sidebar_icons">
+			<div class="sidebar_icon">
+				<a href="./beekeeping.html"><img src="assets/images/beekeeper.png" alt="beekeeping" width=60px></a>
+			</div>
+			<div class="sidebar_icon">
+				<a href="./honey.html"><img src="assets/images/honey.png" alt="honey" width=60px></a>
+			</div>
+<!-- 			<div class="sidebar_icon">
+				<img src="assets/images/apitherapy.png" alt="bees" width=80px href="#bees">
+			</div> -->
+			<div class="sidebar_icon">
+				<a href="./environment.html"><img src="assets/images/planet-earth.png" alt="environment" width=60px></a>
+			</div>
+		</div>
+		<div class="loader">
+			<div class="hexagon-container">
+			    <div class="hexagon hex_1"></div>
+			    <div class="hexagon hex_2"></div>
+			    <div class="hexagon hex_3"></div>
+			    <div class="hexagon hex_4"></div>
+			    <div class="hexagon hex_5"></div>
+			    <div class="hexagon hex_6"></div>
+			    <div class="hexagon hex_7"></div>
+			</div>
+		</div>
+	</div>
+	<div id="title">
+		bees and the <span>environment</span>
+	</div>
+	<ul id="grid" class="clr">
+		<div id="images-sections">
+			<div class="image-section"><img src="assets/images/avocado.png" alt="" width=50px height=50px></div>
+			<div class="image-section"><img src="assets/images/broccoli.png" alt="" width=50px height=50px></div>
+			<div class="image-section"><img src="assets/images/kiwi.png" alt="" width=50px height=50px></div>
+			<div class="image-section"><img src="assets/images/butternut-squash.png" alt="" width=50px height=50px></div>
+			<div class="image-section"><img src="assets/images/cranberry.png" alt="" width=50px height=50px></div>
+			<div class="image-section"><img src="assets/images/orange.png" alt="" width=50px height=50px></div>
+		</div>
+		<div class="textboxes">
+			<div class="title">
+				why bees are important to the <span>environment </span>
+			</div>
+			<div class="boxtext">
+				<p>bees are the most abundant pollinators, and more than 1/3 of the food we consume each day relies on pollination. from avocados, soybeans, asparagus, and sunflowers, to non-foods like cotton and flax. they support the growth of trees, flowers, and other plants which can be food/shelter for creatures of varying sizes.</p>
+
+				<p>bees pollinate plants by transfering pollen from the male part of the flower (anther) to the female part (stigma); by doing this the plant's seed/nut/fruit is then formed. plants sometimes rely on bees and animals to assist with the pollination process, while others rely on wind. this is essential for plant reproduction! </p>
+
+				<p>overall, they play a large role in aiding the flourishing biodiversity on our planet, wildlife habitats, wild plant growth, and more.</p>
+			</div>
+		</div>
+		<div class="textboxes">
+			<div class="title">
+				how to <span>support</span> your local <span>bees</span>
+			</div>
+			<div class="boxtext">
+				<p>on hot days (or ones with unfavorable weather), be sure to leave some sugar water out for bees so they can gather their strength to continue pollinating everything! </p>
+
+				<p>you can also plant things like: fennel, sunflowers, coneflowers, geraniums, sage, thyme, poppy, lavender, verbena, rosemary, aster, buttercup, and more. these herbs and flowers will do wonders to your garden and spice rack, and bees love them! for more plant ideas, check out this website: https://thehoneybeeconservancy.org/plant-a-bee-garden/.</p>
+			</div>
+			<div id="carousel-section">
+				<div id="carousel">
+					<div id="carousel-controls">
+						<button id="button-previous" class="hidden">
+							<img src="assets/images/leftarrow.png" alt="">
+						</button>
+						<button id="button-next">
+							<img src="assets/images/rightarrow.png" alt="">
+						</button>
+					</div>
+					<div id="carousel-image-row">
+						<div class="carousel-image">
+							<img src="assets/images/envo1.jpg" alt="">
+						</div>
+						<div class="carousel-image">
+							<img src="assets/images/envo2.jpg" alt="">
+						</div>
+						<div class="carousel-image">
+							<img src="assets/images/envo3.jpg" alt="">
+						</div>
+						<div class="carousel-image">
+							<img src="assets/images/envo4.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</ul>
+<script>
+	let carouselWidth = 400; 
+
+	let prevButton = document.getElementById('button-previous');
+	let nextButton = document.getElementById('button-next');
+	let imageRow = document.getElementById('carousel-image-row');
+
+	let imageNum = 0;
+
+	function showNextImage() {
+		imageNum = imageNum + 1;
+		checkControls();
+		let newPixelOffset = -carouselWidth * imageNum;
+		imageRow.style.left = newPixelOffset + "px";
+	}
+
+	nextButton.onclick = showNextImage;
+
+	function showPrevImage() {
+		imageNum = imageNum - 1;
+		checkControls();
+		let newPixelOffset = -carouselWidth * imageNum;
+		imageRow.style.left = newPixelOffset + "px";
+	}
+
+	prevButton.onclick = showPrevImage;
+
+	let totalImages = document.getElementsByClassName('carousel-image').length;
+
+
+	function checkControls() {
+		if (imageNum === 0) {
+			prevButton.classList.add("hidden");
+		} else if (prevButton.classList.contains("hidden")) {
+			prevButton.classList.remove("hidden");
+		}
+		if (imageNum === totalImages - 1) {
+			nextButton.classList.add("hidden");
+		} else if (nextButton.classList.contains("hidden")) {
+			nextButton.classList.remove("hidden");
+		}
+	}
+</script>
+</body>
